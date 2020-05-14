@@ -15,5 +15,5 @@ spec:
         - containerPort: 53
           name: "dns-server"
       volumeMounts:
-        - mountPath: "/mnt"
+        - mountPath: "/data/etc/"
           name: pv-volume-for-pod
