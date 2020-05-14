@@ -13,7 +13,11 @@ spec:
       image: registry.opensuse.org/opensuse/bind:latest
       ports:
         - containerPort: 53
-          name: "dns-server"
+          name: dns-server-tcp
+          protocol: TCP
+        - containerPort: 53
+          name: dns-server-udp
+          protocol: UDP
       volumeMounts:
         - mountPath: "/data/etc/"
           name: pv-volume-for-pod
