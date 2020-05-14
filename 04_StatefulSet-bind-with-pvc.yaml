@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: bind
-          image: bind
+          image: registry.opensuse.org/opensuse/bind:latest
           ports:
             - containerPort: 80
               name: web
