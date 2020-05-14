@@ -27,7 +27,7 @@ spec:
               protocol: UDP
           volumeMounts:
             - name: pv-volume-for-statefulset
-              mountPath: /mnt
+              mountPath: /data/etc/
       volumes:
         - name: pv-volume-for-statefulset
           persistentVolumeClaim:
