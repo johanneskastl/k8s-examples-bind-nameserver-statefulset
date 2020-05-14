@@ -8,6 +8,10 @@ metadata:
 spec:
   ports:
     - port: 53
-      name: dns-server
+      name: dns-server-tcp
+      protocol: TCP
+    - port: 53
+      name: dns-server-udp
+      protocol: UDP
   selector:
     app: bind-statefulset
