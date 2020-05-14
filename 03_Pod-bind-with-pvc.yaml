@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-bind-with-pvc
+spec:
+  volumes:
+    - name: pv-volume-for-pod
+      persistentVolumeClaim:
+        claimName: bind-hostpath-volumeclaim
+  containers:
+    - name: pod-bind-with-pvc
+      image: registry.opensuse.org/opensuse/bind:latest
+      ports:
+        - containerPort: 53
+          name: "dns-server"
+      volumeMounts:
+        - mountPath: "/mnt"
+          name: pv-volume-for-pod
