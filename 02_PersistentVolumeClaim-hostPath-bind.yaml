@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: bind-hostpath-volumeclaim
 spec:
-  storageClassName: manual
+  storageClassName: named-manual
   accessModes:
     - ReadOnlyMany
   resources:
