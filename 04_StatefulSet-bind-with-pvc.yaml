@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bind-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: bind-statefulset  # has to match .spec.template.metadata.labels
+  serviceName: "bind-statefulset-headlessservice"
+  replicas: 3  # by default is 1
+  template:
+    metadata:
+      labels:
+        app: bind-statefulset  # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: bind
+          image: bind
+          ports:
+            - containerPort: 80
+              name: web
+          volumeMounts:
+            - name: pv-volume-for-statefulset
+              mountPath: /mnt
+      volumes:
+        - name: pv-volume-for-statefulset
+          persistentVolumeClaim:
+            claimName: bind-hostpath-volumeclaim
