@@ -19,8 +19,12 @@ spec:
         - name: bind
           image: registry.opensuse.org/opensuse/bind:latest
           ports:
-            - containerPort: 80
-              name: web
+            - containerPort: 53
+              name: dns-server-tcp
+              protocol: TCP
+            - containerPort: 53
+              name: dns-server-udp
+              protocol: UDP
           volumeMounts:
             - name: pv-volume-for-statefulset
               mountPath: /mnt
