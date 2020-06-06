@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: udp-services
+  namespace: nginx-ingress-namespace
+data:
+  "53": "default/bind-service-statefulset:53"
