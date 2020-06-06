@@ -5,8 +5,8 @@ metadata:
   name: bind-ingress-statefulset
 spec:
   rules:
-    - :
+    - http:
         paths:
-        - backend:
+          - backend:
             serviceName: bind-service-statefulset
             servicePort: 53
