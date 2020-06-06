@@ -3,13 +3,10 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: bind-ingress-statefulset
-  annotations:
-    bind.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - http:
-      paths:
-        - path: /statefulset
-          backend:
+    - :
+        paths:
+        - backend:
             serviceName: bind-service-statefulset
             servicePort: 53
